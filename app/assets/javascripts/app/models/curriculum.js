@@ -22,18 +22,26 @@ angular
       config.resource = 'curriculum';
     });
 
-    // Curriculum.validates({
-    //   zip_code: { integer: { ignore: /\-/g } }
-    // });
-
     function Curriculum() {
       this.string('name');
     }
 
     Curriculum.validates({
-      name: { required: true },
-      owner_id: { required: true}
+      name: { required: true }
     })
+
+    Curriculum.prototype.$fork = function() {
+      var parent_curriculum_clone = _.cloneDeep(this);
+      var source_id = parent_curriculum_clone.id;
+
+      delete parent_curriculum_clone.id;
+
+      var child_curriculum = Curriculum.new(_.defaults({
+        source_id: source_id
+      }, parent_curriculum_clone));
+
+      return child_curriculum.$save();
+    }
 
     return Curriculum;
 
