@@ -4,17 +4,11 @@ angular
 
     User.inherits(ngActiveResource.Base);
 
-    User.hasMany('curriculum', {
-      provider: 'User'
-    });
+    User.hasMany('curricula');
 
     User.api.configure(function(config) {
       config.resource = 'users';
     });
-
-    // Curriculum.validates({
-    //   zip_code: { integer: { ignore: /\-/g } }
-    // });
 
     function User() {
       this.string('first_name');
