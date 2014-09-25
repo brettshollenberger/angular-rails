@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: angular-rails_development
+
+test:
+  <<: *default
+  database: angular-rails_test
+
+production:
+  <<: *default
+  database: angular-rails_production
+  username: angular-rails
+  password: <%= ENV['ANGULAR-RAILS_DATABASE_PASSWORD'] %>

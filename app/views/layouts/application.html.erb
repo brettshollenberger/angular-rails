@@ -8,10 +8,15 @@
   <meta content="<%= Rails.application.secrets.one_api_key %>" name="api-key" />
 </head>
 <body ng-app="ngRails">
+	<div class="row">
+		<div class="large-12 columns">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			<%= yield %>
+		</div>
+	</div>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+  
 
 </body>
 </html>
