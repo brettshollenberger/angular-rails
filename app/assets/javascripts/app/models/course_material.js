@@ -4,9 +4,15 @@
 
     CourseMaterial.inherits(ngActiveResource.Base);
 
-    CourseMaterial.belongsTo('curriculum');
-    CourseMaterial.belongsTo('course_material');
-    CourseMaterial.belongsTo('user');
+    CourseMaterial.belongsTo('curriculum', {
+      foreignKey: 'parent_id'
+    });
+
+    CourseMaterial.belongsTo('course_material', {
+      foreignKey: 'parent_id'
+    });
+
+    CourseMaterial.hasMany('course_materials');
 
     CourseMaterial.api.configure(function(config) {
       config.resource = 'course_materials';
@@ -20,9 +26,15 @@
     }
 
     CourseMaterial.validates({
-      name: { required: true },
-      filetype: { required: true, inclusion: { in: ["txt". "pdf", "md"] } },
-      classification: { required: true, inclusion: { in: ["quiz", "assignment", "directory", "reading"] } }
+      name:           { required: true },
+      filetype:       { required: true, 
+                        inclusion: { in: ["txt", "pdf", "md"] } 
+                      },
+      classification: { required: true, 
+                        inclusion: { 
+                          in: ["quiz", "assignment", "directory", "reading"] 
+                        } 
+                      }
     })
 
     return CourseMaterial;

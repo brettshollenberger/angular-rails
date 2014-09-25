@@ -1,16 +1,30 @@
 <div ng-repeat="curriculum in curricula">
   <h1>{{curriculum.name}}</h1>
 
-  <p>Forks:</p>
-  <div ng-repeat="fork in curriculum.forks">
-    {{fork.name}}
+  <div ng-show="!curriculum.forks.empty()">
+    <h4>Forks:</h4>
+    <div ng-repeat="fork in curriculum.forks">
+      {{fork.name}}
+    </div>
   </div>
 
-  <p>Forked From:</p>
-  <p>{{curriculum.source.name || "nothing"}}</p>
+  <div ng-show="curriculum.source.name">
+    <h4>Forked From:</h4>
+    <p>{{curriculum.source.name}}</p>
+  </div>
 
-  <p>Owner:</p>
+  <h4>Owner:</h4>
   <p>{{curriculum.owner.full_name}}</p>
+
+  <div ng-show="!curriculum.course_materials.empty()">
+    <h4>Course Materials:</h4>
+    <div ng-repeat="file in curriculum.course_materials">
+      <p ng-click="file.course_materials.findAll()">{{file.name}}</p>
+      <div ng-repeat="f in file.course_materials">
+        <p>{{f.name}}</p>
+      </div>
+    </div>
+  </div>
 
   <br><br>
 

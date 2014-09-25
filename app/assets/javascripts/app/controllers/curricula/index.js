@@ -1,19 +1,14 @@
 angular
   .module('ngRails')
-  .controller('CurriculaIndexCtrl', ['$scope', 'Curriculum', 'User',
-  function($scope, Curriculum, User) {
+  .controller('CurriculaIndexCtrl', ['$scope', 'Curriculum', 'User', 'CourseMaterial',
+  function($scope, Curriculum, User, CourseMaterial) {
 
     $scope.users = User.findAll();
 
-    $scope.curricula = [];
-
-    $scope.curriculum = Curriculum.find(2).then(function() {
-      $scope.curriculum3 = Curriculum.find(3);
-
-      $scope.curricula.push($scope.curriculum);
-      $scope.curricula.push($scope.curriculum3);
+    $scope.curricula = Curriculum.findAll().then(function() {
+      $scope.curricula.each(function(curriculum) {
+        curriculum.course_materials.findAll();
+      });
     });
-
-    
 
   }]);

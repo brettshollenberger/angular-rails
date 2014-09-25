@@ -8,14 +8,16 @@ angular
       provider: 'Curriculum'
     });
 
+    Curriculum.hasMany('course_materials');
+
     Curriculum.belongsTo('source', {
       provider: 'Curriculum',
-      foreign_key: 'source_id'
+      foreignKey: 'source_id'
     });
 
     Curriculum.belongsTo('owner', {
       provider: 'User',
-      foreign_key: 'owner_id'
+      foreignKey: 'owner_id'
     })
 
     Curriculum.api.configure(function(config) {
