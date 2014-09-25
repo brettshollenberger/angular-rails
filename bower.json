@@ -6,7 +6,7 @@
       "angular-route": "1.2.21",
       "active-support": "latest",
       "lodash": "latest",
-      "ng-active-resource": "https://github.com/brettshollenberger/the-abstractions-are-leaking.git#0.7.27",
+      "ng-active-resource": "https://github.com/brettshollenberger/the-abstractions-are-leaking.git#0.7.28",
       "foundation": "latest"
     }
   }
