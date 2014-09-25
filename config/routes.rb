@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :static, :defaults => {:format => :json} do
     namespace :api do
       resources :curricula
+      resources :users
     end
   end
 
