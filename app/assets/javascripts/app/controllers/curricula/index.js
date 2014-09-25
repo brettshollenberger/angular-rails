@@ -12,8 +12,6 @@ angular
 
       $scope.curricula.push($scope.curriculum);
       $scope.curricula.push($scope.curriculum3);
-
-      $scope.curriculum.$save();
     });
 
     
