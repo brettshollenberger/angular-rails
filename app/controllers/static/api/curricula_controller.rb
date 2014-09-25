@@ -8,7 +8,7 @@ module Static
       end
 
       def show
-        @curriculum = Curricula.new *database.first
+        @curriculum = Curricula.new(*select(params[:id]))
       end
 
     private
@@ -18,6 +18,10 @@ module Static
           [2, "Javascript", nil],
           [3, "Javascript for Beginners", 2]
         ]
+      end
+
+      def select(id)
+        database.select { |c| c[0].to_s == id }.first
       end
     end
   end

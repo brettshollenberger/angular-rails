@@ -1,1 +1,13 @@
-<h1>{{fun}}</h1>
+<div ng-repeat="curriculum in curricula">
+  <h1>{{curriculum.name}}</h1>
+
+  <p>Forks:</p>
+  <div ng-repeat="fork in curriculum.forks">
+    {{fork.name}}
+  </div>
+
+  <p>Forked From:</p>
+  <p>{{curriculum.source.name || "nothing"}}</p>
+
+  <br><br>
+</div>

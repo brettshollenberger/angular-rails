@@ -4,9 +4,9 @@
     "dependencies": {
       "angular": "1.2.21",
       "angular-route": "1.2.21",
-      "active-support": "latest",
+      "active-support": "0.1.3",
       "lodash": "latest",
-      "ng-active-resource": "https://github.com/brettshollenberger/the-abstractions-are-leaking.git#0.7.28",
+      "ng-active-resource": "https://github.com/brettshollenberger/the-abstractions-are-leaking.git#0.7.29",
       "foundation": "latest"
     }
   }
